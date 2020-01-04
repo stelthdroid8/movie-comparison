@@ -1,7 +1,5 @@
 // http://www.omdbapi.com/?apikey=[yourkey]& - data requests
-
-createAutoComplete ({
-    root: document.querySelector('.autocomplete'),
+const autoCompleteConfig = {
     renderOption: (movie) => {
         const src = movie.Poster === 'N/A' ? '' : movie.Poster;
         return `
@@ -31,6 +29,14 @@ createAutoComplete ({
             }  
     }
 
+}
+createAutoComplete ({
+    ...autoCompleteConfig,
+    root: document.querySelector('#left-autocomplete')
+});
+createAutoComplete({
+    ...autoCompleteConfig,
+    root: document.querySelector('#right-autocomplete')
 });
 
 
