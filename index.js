@@ -48,17 +48,14 @@ const onInput = debounce (async (event) => {
         const src = movie.Poster === 'N/A' ? '' : movie.Poster;
         choice.classList.add('dropdown-item');
         choice.innerHTML = `
-        <img src= "${src}" />
-        ${movie.Title} 
+            <img src= "${src}" />
+            ${movie.Title} 
         `;
-
         choice.addEventListener('click', () => {
             dropdown.classList.remove('is-active');
             input.value = movie.Title;
-
             onMovieSelect(movie);
         });
-
         resultsWrapper.appendChild(choice);
     }
 }, 500);
